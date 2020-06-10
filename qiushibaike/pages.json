@@ -57,8 +57,8 @@
 	},
 	"tabBar": {
 		"color": "#333333",
+		// "backgroundColor":"#FFFFFF",   // 真机调试时会出现一个多余的底部空白tab框，目前不知具体原因时什么
 		"selectedColor": "#f4ea2a",
-		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
 		"position": "bottom",
 		"list": [{
@@ -80,7 +80,7 @@
 			"pagePath": "pages/my/my",
 			"iconPath": "static/tabbar/my.png",
 			"selectedIconPath": "static/tabbar/my-active.png",
-			"text": "接口"
+			"text": "我的"
 		}]
 	}
 }

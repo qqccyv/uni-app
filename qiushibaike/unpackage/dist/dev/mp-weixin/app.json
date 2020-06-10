@@ -16,7 +16,6 @@
   "tabBar": {
     "color": "#333333",
     "selectedColor": "#f4ea2a",
-    "backgroundColor": "#FFFFFF",
     "borderStyle": "black",
     "position": "bottom",
     "list": [
@@ -42,7 +41,7 @@
         "pagePath": "pages/my/my",
         "iconPath": "static/tabbar/my.png",
         "selectedIconPath": "static/tabbar/my-active.png",
-        "text": "接口"
+        "text": "我的"
       }
     ]
   },
