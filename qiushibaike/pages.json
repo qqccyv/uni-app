@@ -46,8 +46,43 @@
 		}, {
 			"path": "pages/my/my",
 			"style": {}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"autoBackButton": false,
+						"backgroundColor": "#F7F7F7",
+						"buttons": [{
+							"color": "#565656",
+							"colorPressed": "#BBBBBB",
+							"float": "right",
+							"fontSize": "16px",
+							"text": "取消"
+						}],
+						"searchInput": {
+							"align": "left",
+							"backgroundColor": "#F7F7F7",
+							"borderRadius": "4px",
+							"placeholder": "搜索糗事",
+							"placeholderColor": "#cccccc",
+							"disabled": false
+						}
+					}
+				}
+			}
 		}
-	],
+	    ,{
+            "path" : "pages/add-input/add-input",
+            "style" : {
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": false
+				}
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "糗事百科",

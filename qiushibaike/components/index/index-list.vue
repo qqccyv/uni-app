@@ -1,5 +1,5 @@
 <template>
-	<view class="index-list">
+	<view class="index-list animate__animated animate__fadeInLeft">
 		<view class="index-list1 u-f-ac u-f-jsb">
 			<view class="u-f-ac">
 				<image :src="item.userpic" 
@@ -7,8 +7,8 @@
 				lazy-load></image>
 				{{item.username}}
 			</view>
-			<view class="u-f-ac" v-show="item.isguanzhu">
-				<view class="icon iconfont icon-zengjia"></view>关注
+			<view class="u-f-ac" v-show="!item.isguanzhu">
+				<view class="icon iconfont icon-zengjia" @tap="guanzhu"></view>关注
 			</view>
 		</view>
 		<view class="index-list2">{{item.title}}</view>
@@ -28,11 +28,11 @@
 		<view class="index-list4 u-f-ac u-f-jsb">
 			<view class="u-f-ac">
 				<view class="u-f-ac" :class="{'active':(item.infonum.index==1)}">
-					<view class="icon iconfont icon-icon_xiaolian-mian"></view>
+					<view class="icon iconfont icon-icon_xiaolian-mian" @tap="caozuo('ding')"></view>
 					{{item.infonum.dingnum}}
 				</view>
 				<view class="u-f-ac" :class="{'active':(item.infonum.index==2)}">
-					<view class="icon iconfont icon-kulian"></view>
+					<view class="icon iconfont icon-kulian" @tap="caozuo('cai')"></view>
 					{{item.infonum.cainum}}
 				</view>
 			</view>
@@ -55,6 +55,19 @@
 		props:{
 			item:Object,
 			index:Number
+		},
+		mounted(){
+			// console.log(this.index)
+		},
+		methods:{
+			guanzhu(){
+				this.$emit('guanzhu',this.index)
+				console.log(this.index)
+			},
+			caozuo(type){
+				this.$emit('caozuo',{type,index:this.index})
+				console.log({type,index:this.index})
+			}
 		}
 	}
 </script>
