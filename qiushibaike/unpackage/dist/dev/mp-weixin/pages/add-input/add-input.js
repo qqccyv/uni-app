@@ -134,7 +134,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniNavBar = function uniNavBar() {__webpack_require__.e(/*! require.ensure | components/uni-nav-bar/uni-nav-bar */ "components/uni-nav-bar/uni-nav-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-nav-bar/uni-nav-bar.vue */ 86));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var uploadImages = function uploadImages() {Promise.all(/*! require.ensure | components/common/upload-images */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/common/upload-images")]).then((function () {return resolve(__webpack_require__(/*! ../../components/common/upload-images.vue */ 114));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+
+
+
+
+
+
+
+
 
 
 
@@ -149,15 +157,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var lookList = ['所有人可见', '仅自己可见'];var _default =
+
 {
   components: {
-    uniNavBar: uniNavBar },
+    uniNavBar: uniNavBar,
+    uploadImages: uploadImages },
 
   data: function data() {
     return {
-      currLook: '所有人可见' };
+      currLook: '所有人可见',
+      text: '',
+      imagesList: [] };
 
   },
+
   methods: {
     back: function back() {
       uni.navigateBack({
@@ -174,6 +187,10 @@ var lookList = ['所有人可见', '仅自己可见'];var _default =
           _this.currLook = lookList[res.tapIndex];
         } });
 
+    },
+    upload: function upload(imageArr) {
+      this.imagesList = imageArr;
+      console.log(this.imagesList);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

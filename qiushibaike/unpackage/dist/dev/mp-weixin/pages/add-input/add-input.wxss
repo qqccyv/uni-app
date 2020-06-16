@@ -2,4 +2,8 @@
 .middleTitle {
 	width: 100%;
 }
+textarea {
+	border: 1rpx solid #EEEEEE;
+}
+
 
