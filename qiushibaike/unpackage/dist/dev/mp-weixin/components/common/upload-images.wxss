@@ -1,14 +1,14 @@
 
-.cell-pd.data-v-69bdd7eb {
+.cell-pd.data-v-65f48a5b {
 	padding: 22rpx 30rpx;
 }
-.list-pd.data-v-69bdd7eb {
+.list-pd.data-v-65f48a5b {
 	margin-top: 50rpx;
 }
-.uni-uploader__file.data-v-69bdd7eb {
+.uni-uploader__file.data-v-65f48a5b {
 	position: relative;
 }
-.icon-shanchu.data-v-69bdd7eb {
+.icon-shanchu.data-v-65f48a5b {
 	position: absolute;
 	top: 0;
 	right: 0;

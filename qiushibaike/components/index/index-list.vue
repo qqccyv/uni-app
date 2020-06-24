@@ -7,8 +7,8 @@
 				lazy-load></image>
 				{{item.username}}
 			</view>
-			<view class="u-f-ac" v-show="!item.isguanzhu">
-				<view class="icon iconfont icon-zengjia" @tap="guanzhu"></view>关注
+			<view class="u-f-ac" @tap="guanzhu">
+				<view class="icon iconfont icon-zengjia" ></view>{{item.isguanzhu ? "已关注":'关注'}}
 			</view>
 		</view>
 		<view class="index-list2">{{item.title}}</view>
@@ -62,11 +62,9 @@
 		methods:{
 			guanzhu(){
 				this.$emit('guanzhu',this.index)
-				console.log(this.index)
 			},
 			caozuo(type){
 				this.$emit('caozuo',{type,index:this.index})
-				console.log({type,index:this.index})
 			}
 		}
 	}

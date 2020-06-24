@@ -39,7 +39,12 @@
 
 		, {
 			"path": "pages/news/news",
-			"style": {}
+			"style" : {
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": false
+				}
+			}
 		}, {
 			"path": "pages/paper/paper",
 			"style": {}
@@ -80,6 +85,12 @@
 					"scrollIndicator": "none",
 					"titleNView": false
 				}
+			}
+        }
+        ,{
+            "path" : "pages/topic-nav/topic-nav",
+            "style" : {
+				"navigationBarTitleText": "话题分类"
 			}
         }
     ],

@@ -5,5 +5,19 @@
 textarea {
 	border: 1rpx solid #EEEEEE;
 }
-
+.gonggao{
+	width: 500rpx;
+	background-color: #FFFFFF;
+	padding: 50rpx;
+	border-radius: 15rpx;
+}
+.gonggao image{
+	width: 75%;
+	margin-bottom: 20rpx;
+}
+.gonggao button{
+	margin-top: 20rpx;
+	background: #FFE934;
+	color: #171606;
+}
 

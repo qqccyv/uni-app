@@ -320,9 +320,9 @@
 				}, 500)
 			},
 			guanzhu(idx) {
-				this.newsList[this.tabIndex].list[idx].isguanzhu = true
+				this.newsList[this.tabIndex].list[idx].isguanzhu = !this.newsList[this.tabIndex].list[idx].isguanzhu
 				uni.showToast({
-					title: '关注成功'
+					title: this.newsList[this.tabIndex].list[idx].isguanzhu ? '关注成功':'已取消关注'
 				});
 			},
 			caozuo(type) {
@@ -331,11 +331,13 @@
 					case 'ding':
 						if (this.newsList[this.tabIndex].list[type.index].infonum.index === 1) return
 						this.newsList[this.tabIndex].list[type.index].infonum.dingnum++
+						this.newsList[this.tabIndex].list[type.index].infonum.index === 2 && this.newsList[this.tabIndex].list[type.index].infonum.cainum--
 						this.newsList[this.tabIndex].list[type.index].infonum.index = 1
 						break;
 					case 'cai':
 						if (this.newsList[this.tabIndex].list[type.index].infonum.index === 2) return
 						this.newsList[this.tabIndex].list[type.index].infonum.cainum++
+						this.newsList[this.tabIndex].list[type.index].infonum.index === 1 && this.newsList[this.tabIndex].list[type.index].infonum.dingnum--
 						this.newsList[this.tabIndex].list[type.index].infonum.index = 2
 						break;
 				}

@@ -60,7 +60,7 @@ var component = Object(_Downloads_HBuilderX_plugins_uniapp_cli_node_modules_dclo
   renderjs
 )
 
-component.options.__file = "Desktop/Code/uni-app/qiushibaike/App.vue"
+component.options.__file = "App.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
