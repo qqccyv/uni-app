@@ -13,7 +13,7 @@
 					</view> 
 				</view>
 				<view  @tap="guanzhu" 
-				class="icon iconfont icon-zengjia">{{isguanzhu ? '已关注':'关注'}}</view>
+				class="icon iconfont icon-zengjia">{{item.isguanzhu ? '已关注':'关注'}}</view>
 			</view>
 			<view>{{item.title}}</view>
 			<view class="u-f-ajc">
@@ -59,15 +59,12 @@
 		},
 		data() {
 			return {
-				isguanzhu: this.item.isguanzhu
 			}
 		},
 		methods:{
 			guanzhu(){
-				this.isguanzhu=!this.isguanzhu;
-				console.log(this.isguanzhu)
 				uni.showToast({
-					title: this.isguanzhu ? '关注成功':'已取消关注',
+					title: this.item.isguanzhu ? '关注成功':'已取消关注',
 				});
 			}
 		}

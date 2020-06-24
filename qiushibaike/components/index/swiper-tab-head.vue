@@ -1,8 +1,8 @@
 <template>
 	<view class="uni-tab-bar">
-		<scroll-view scroll-x class="uni-swiper-tab">
-			<block v-for="(tab,index) in tabBars" :key="tab.id">
-				<view class="swiper-tab-list" :class="{'active':tabIndex==index}" @tap="tabtap(index)">
+		<scroll-view scroll-x class="uni-swiper-tab" :class="{'borderBottom':tabStyle.borderBottom}">
+			<block v-for="(tab,index) in tabBars">
+				<view class="swiper-tab-list" :class="{'active':tabIndex==index,'spaceAround': tabStyle.spaceAround}" @tap="tabtap(index)" :key="tab.id">
 					{{tab.name}}
 					<view class="swiper-tab-line"></view>
 				</view>
@@ -15,7 +15,15 @@
 	export default {
 		props:{
 			tabBars: Array,
-			tabIndex: Number
+			tabIndex: Number,
+			tabStyle: {
+				type: Object,
+				default:()=> {
+					return {
+					borderBottom: false,
+					spaceAround: false
+				}}
+			}
 		},
 		data(){
 			return {
@@ -31,8 +39,14 @@
 </script>
 
 <style scoped>
+	.spaceAround {
+		width: 50%;
+	}
 	.uni-swiper-tab {
 		border-bottom: 1upx solid #EEEEEE;
+	}
+	.borderBottom {
+		border-bottom: 0;
 	}
 	
 	.swiper-tab-list {

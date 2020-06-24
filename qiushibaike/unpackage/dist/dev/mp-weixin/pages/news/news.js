@@ -406,6 +406,14 @@ __webpack_require__.r(__webpack_exports__);
       uni.navigateTo({
         url: '../topic-nav/topic-nav' });
 
+    },
+    goDetail: function goDetail(index) {
+      uni.navigateTo({
+        url: '../topic-detail/topic-detail' });
+
+    },
+    guanzhuHander: function guanzhuHander(index) {
+      this.guanzhu.list[index].isguanzhu = !this.guanzhu.list[index].isguanzhu;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

@@ -1,6 +1,12 @@
 
+.spaceAround.data-v-090a9d36 {
+	width: 50%;
+}
 .uni-swiper-tab.data-v-090a9d36 {
 	border-bottom: 1rpx solid #EEEEEE;
+}
+.borderBottom.data-v-090a9d36 {
+	border-bottom: 0;
 }
 .swiper-tab-list.data-v-090a9d36 {
 	color: #969696;

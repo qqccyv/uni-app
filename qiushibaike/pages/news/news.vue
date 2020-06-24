@@ -11,7 +11,7 @@
 				<swiper-item class="swiper-item">
 					<scroll-view scroll-y class="list" @scrolltolower="loadmore">
 						<block v-for="(item,index) in guanzhu.list" :key="index">
-							<common-list :item="item" :index="index"></common-list>
+							<common-list :item="item" :index="index" @guanzhu="guanzhuHander"></common-list>
 						</block>
 						<!-- 上拉加载更多 -->
 						<load-more :loadText="guanzhu.loadText"></load-more>
@@ -41,7 +41,7 @@
 						<!-- 最近更新 -->
 						<view class="topic-new">
 							<view>最近更新</view>
-							<topic-list :topicList="topicList" ></topic-list>
+							<topic-list :topicList="topicList" @goDetail="goDetail"></topic-list>
 						</view>
 					</scroll-view>
 				</swiper-item>
@@ -245,7 +245,15 @@
 				uni.navigateTo({
 					url: '../topic-nav/topic-nav',
 				});
-			}
+			},
+			goDetail(index){
+				uni.navigateTo({
+					url: '../topic-detail/topic-detail'
+				});
+			},
+				guanzhuHander(index){
+					this.guanzhu.list[index].isguanzhu = !this.guanzhu.list[index].isguanzhu
+				}
 		}
 	}
 </script>

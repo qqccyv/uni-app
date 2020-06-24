@@ -1,7 +1,7 @@
 <template>
 	<view class="">
 		<block v-for="(item,index) in topicList">
-			<view class="topic-list u-f animate__animated animate__fadeInLeft" >
+			<view class="topic-list u-f animate__animated animate__fadeInLeft" @tap="goDetail(index)">
 				<image :src="item.titlepic" mode="widthFix" lazy-load></image>
 				<view>
 					<view>#{{item.title}}#</view>
@@ -25,6 +25,11 @@
 			return {
 			}
 		},
+		methods:{
+			goDetail(index){
+				this.$emit('goDetail',index)
+			}
+		}
 	}
 </script>
 

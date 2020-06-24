@@ -27,10 +27,7 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		<!-- 	
-		<block v-for="(item,index) in list" :key="index">
-			<index-list :item="item" :index="index"></index-list>
-		</block> -->
+		
 	</view>
 </template>
 

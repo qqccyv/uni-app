@@ -12,7 +12,7 @@
 						<template v-if="item.list.length>0">
 							<!-- 列表展示 -->
 								<view class="topic-list">
-									<topic-list :topicList="item.list"></topic-list>
+									<topic-list :topicList="item.list" @goDetail="goDetail"></topic-list>
 								</view>
 							<!-- 上拉加载更多 -->
 							<load-more :loadText="item.loadText"></load-more>
@@ -406,6 +406,11 @@
 					this.topicList[index].list.push(obj)
 					this.topicList[index].loadText = "上拉加载更多"
 				}, 500)
+			},
+			goDetail(index){
+				uni.navigateTo({
+					url: '../topic-detail/topic-detail'
+				});
 			}
 		}
 	}

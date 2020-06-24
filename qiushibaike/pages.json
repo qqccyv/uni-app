@@ -90,7 +90,27 @@
         ,{
             "path" : "pages/topic-nav/topic-nav",
             "style" : {
-				"navigationBarTitleText": "话题分类"
+				"navigationBarTitleText": "话题分类",
+				"app-plus":{
+					"bounce":"none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/topic-detail/topic-detail",
+            "style" : {
+				"app-plus":{
+					"bounce":"none",
+					"scrollIndicator":"none",
+					"titleNView":{
+						"type":"transparent",
+						"buttons":[
+							{
+								"type":"menu"
+							}
+						]
+					}
+				}
 			}
         }
     ],

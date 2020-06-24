@@ -127,11 +127,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-var _default =
+var _default2 =
 {
   props: {
     tabBars: Array,
-    tabIndex: Number },
+    tabIndex: Number,
+    tabStyle: {
+      type: Object,
+      default: function _default() {
+        return {
+          borderBottom: false,
+          spaceAround: false };
+      } } },
+
 
   data: function data() {
     return {};
@@ -141,7 +149,7 @@ var _default =
   methods: {
     tabtap: function tabtap(index) {
       this.$emit('tabtap', index);
-    } } };exports.default = _default;
+    } } };exports.default = _default2;
 
 /***/ }),
 
