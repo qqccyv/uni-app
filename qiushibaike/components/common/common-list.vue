@@ -63,6 +63,7 @@
 		},
 		methods:{
 			guanzhu(){
+				this.$emit('guanzhu',this.index)
 				uni.showToast({
 					title: this.item.isguanzhu ? '关注成功':'已取消关注',
 				});

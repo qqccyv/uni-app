@@ -204,30 +204,7 @@
 			}
 		},
 		onReachBottom() {
-			if (this.topicList[this.tabIndex].loadText != "上拉加载更多") return
-			this.topicList[this.tabIndex].loadText = "加载中"
-			setTimeout(() => {
-				let obj = {
-					userpic: "../../static/demo/userpic/12.jpg",
-					username: "哈哈",
-					sex: 0, //0 男 1 女
-					age: 25,
-					isguanzhu: false,
-					title: "我是标题",
-					titlepic: "../../static/demo/datapic/13.jpg",
-					video: {
-						looknum: "20w",
-						long: "2:47"
-					},
-					share: false,
-					path: "深圳 龙岗",
-					sharenum: 20,
-					commentnum: 30,
-					goodnum: 20
-				}
-				this.topicList[this.tabIndex].list.push(obj)
-				this.topicList[this.tabIndex].loadText = "上拉加载更多"
-			}, 500)
+			this.loadMore()
 		},
 		methods: {
 			// tab栏切换事件
@@ -236,6 +213,32 @@
 			},
 			guanzhu(index){
 				this.topicList[this.tabIndex].list[index].isguanzhu = !this.topicList[this.tabIndex].list[index].isguanzhu
+			},
+			loadMore(){
+				if (this.topicList[this.tabIndex].loadText != "上拉加载更多") return
+				this.topicList[this.tabIndex].loadText = "加载中"
+				setTimeout(() => {
+					let obj = {
+						userpic: "../../static/demo/userpic/12.jpg",
+						username: "哈哈",
+						sex: 0, //0 男 1 女
+						age: 25,
+						isguanzhu: false,
+						title: "我是标题",
+						titlepic: "../../static/demo/datapic/13.jpg",
+						video: {
+							looknum: "20w",
+							long: "2:47"
+						},
+						share: false,
+						path: "深圳 龙岗",
+						sharenum: 20,
+						commentnum: 30,
+						goodnum: 20
+					}
+					this.topicList[this.tabIndex].list.push(obj)
+					this.topicList[this.tabIndex].loadText = "上拉加载更多"
+				}, 500)
 			}
 
 		}
