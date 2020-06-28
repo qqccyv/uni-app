@@ -6,15 +6,20 @@
 		<swiper-tab-head @tabtap="ontabtap" :tabBars="tabBars" :tabIndex="tabIndex" :tabStyle="{borderBottom: true,spaceAround:true}">
 		</swiper-tab-head>
 		<!-- 列表部分 -->
-		<view class="topic-detail-list">
-			<!-- 列表 -->
-			<block v-for="(list,listindex) in topicList[tabIndex].list" :key="listindex">
-				<common-list :item="list" :index="listindex" @guanzhu="guanzhu"></common-list>
-			</block>
-			<!-- 上拉加载更多 -->
-			<load-more :loadText="topicList[tabIndex].loadText"></load-more>
-		</view>
-	</view>
+		<!-- 列表 -->
+				<view class="topic-detail-list">
+					<block v-for="(item,index) in topicList" :key="index">
+						<template v-if="tabIndex==index">
+							<!-- 列表 -->
+							<block v-for="(list,listindex) in item.list" :key="listindex">
+								<common-list @guanzhu="guanzhu" :item="list" :index="listindex"></common-list>
+							</block>
+							<!-- 上拉加载 -->
+							<load-more :loadText="item.loadText"></load-more>
+						</template>
+					</block>
+				</view>
+	
 	</view>
 </template>
 
@@ -206,15 +211,18 @@
 		onReachBottom() {
 			this.loadMore()
 		},
+		onPullDownRefresh() {
+			this.getData()
+		},
 		methods: {
 			// tab栏切换事件
 			ontabtap(index) {
 				this.tabIndex = index
 			},
-			guanzhu(index){
+			guanzhu(index) {
 				this.topicList[this.tabIndex].list[index].isguanzhu = !this.topicList[this.tabIndex].list[index].isguanzhu
 			},
-			loadMore(){
+			loadMore() {
 				if (this.topicList[this.tabIndex].loadText != "上拉加载更多") return
 				this.topicList[this.tabIndex].loadText = "加载中"
 				setTimeout(() => {
@@ -239,6 +247,85 @@
 					this.topicList[this.tabIndex].list.push(obj)
 					this.topicList[this.tabIndex].loadText = "上拉加载更多"
 				}, 500)
+			},
+			getData() {
+				setTimeout(() => {
+					let obj = [
+						// 图文
+						{
+							userpic: "../../static/demo/userpic/12.jpg",
+							username: "哈哈11111111111111",
+							sex: 0, //0 男 1 女
+							age: 25,
+							isguanzhu: false,
+							title: "我是标题111111",
+							titlepic: "../../static/demo/datapic/13.jpg",
+							video: false,
+							share: false,
+							path: "深圳 龙岗",
+							sharenum: 20,
+							commentnum: 30,
+							goodnum: 20
+						},
+						// 图文
+						{
+							userpic: "../../static/demo/userpic/12.jpg",
+							username: "哈哈",
+							sex: 0, //0 男 1 女
+							age: 25,
+							isguanzhu: false,
+							title: "我是标题",
+							titlepic: "../../static/demo/datapic/13.jpg",
+							video: false,
+							share: false,
+							path: "深圳 龙岗",
+							sharenum: 20,
+							commentnum: 30,
+							goodnum: 20
+						},
+						// 视频
+						{
+							userpic: "../../static/demo/userpic/12.jpg",
+							username: "哈哈",
+							sex: 0, //0 男 1 女
+							age: 25,
+							isguanzhu: false,
+							title: "我是标题",
+							titlepic: "../../static/demo/datapic/13.jpg",
+							video: {
+								looknum: "20w",
+								long: "2:47"
+							},
+							share: false,
+							path: "深圳 龙岗",
+							sharenum: 20,
+							commentnum: 30,
+							goodnum: 20
+						},
+						// 分享
+						{
+							userpic: "../../static/demo/userpic/12.jpg",
+							username: "哈哈",
+							sex: 0, //0 男 1 女
+							age: 25,
+							isguanzhu: false,
+							title: "我是标题",
+							titlepic: "",
+							video: false,
+							share: {
+								title: "我是分享的标题",
+								titlepic: "../../static/demo/datapic/14.jpg"
+							},
+							path: "深圳 龙岗",
+							sharenum: 20,
+							commentnum: 30,
+							goodnum: 20
+						},
+					]
+					this.topicList[this.tabIndex].list = obj
+					uni.stopPullDownRefresh()
+				}, 2000)
+
 			}
 
 		}
