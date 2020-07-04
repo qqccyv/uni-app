@@ -14,7 +14,13 @@
 		},
 		methods:{
 			submit(){
-				if(this.text.trim().length === 0)  return
+				if(this.text.trim().length === 0)  {
+					uni.showToast({
+						title: '消息不能为空!',
+						image: '/static/icon/warning.png'
+					})
+					return 
+				}
 				this.$emit('submit',this.text);
 				this.text="";
 			}
