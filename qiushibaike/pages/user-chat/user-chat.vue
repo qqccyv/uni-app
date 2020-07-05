@@ -35,7 +35,7 @@
 			this.getContentHeight()
 		},
 		onReady() {
-			this.pageToBottom()
+				this.pageToBottom()
 		},
 		methods: {
 			// 获取聊天数据
@@ -89,15 +89,18 @@
 				}
 			},
 			pageToBottom() {
-				const query = uni.createSelectorQuery()
+				const query = uni.createSelectorQuery() // 生成query实例
 				query.select('#scrollView').boundingClientRect()
-				query.selectAll('.user-chat-item').boundingClientRect()
+				// 选择聊天框子组件的所有结点
+				query.selectAll('.userChartItem').boundingClientRect() // APP端可用
+				// query.selectAll('#scrollView >>> .userChartItem').boundingClientRect() // 微信小程序可用 
 				let itemHeight = 0
 				query.exec((res) => {
 					res[1].forEach((item) => {
-						itemHeight += item.height
+						itemHeight += item.height  // 循环相加 所有节点的高度
 					})
-					if (itemHeight > this.style.contentHeight) this.scrollTop = itemHeight
+					console.log(res)
+					if (itemHeight > this.style.contentHeight) this.scrollTop = itemHeight  // 如果大于'#scrollView'的高度  就滚动到底部
 				})
 			}
 		}

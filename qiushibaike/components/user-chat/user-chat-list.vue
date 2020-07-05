@@ -1,6 +1,5 @@
 <template>
-	<view class="user-chat-item">
-		
+	<view class="userChartItem">
 		<view v-if="item.gstime" class="user-chat-time u-f-ajc">{{item.gstime}}</view>
 		<view class="user-chat-list u-f" :class="{'user-chat-me':item.isme}">
 			<image v-if="!item.isme" :src="item.userpic" mode="widthFix" lazy-load></image>
@@ -12,7 +11,6 @@
 			</view>
 			<image v-if="item.isme" :src="item.userpic" mode="widthFix" lazy-load></image>
 		</view>
-		
 	</view>
 </template>
 
