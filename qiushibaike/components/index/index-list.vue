@@ -12,7 +12,7 @@
 			</view>
 		</view>
 		<view class="index-list2">{{item.title}}</view>
-		<view class="index-list3 u-f-ajc">
+		<view class="index-list3 u-f-ajc" @tap="toDetail">
 			<!-- 图片 -->
 			<image :src="item.titlepic" 
 			mode="widthFix" 
@@ -65,6 +65,11 @@
 			},
 			caozuo(type){
 				this.$emit('caozuo',{type,index:this.index})
+			},
+			toDetail(){
+				uni.navigateTo({
+					url: '../../pages/detail/detail?detailData='+JSON.stringify(this.item)
+				});
 			}
 		}
 	}

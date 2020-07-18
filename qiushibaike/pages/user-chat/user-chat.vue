@@ -99,7 +99,7 @@
 					res[1].forEach((item) => {
 						itemHeight += item.height  // 循环相加 所有节点的高度
 					})
-					console.log(res)
+					// console.log(res)
 					if (itemHeight > this.style.contentHeight) this.scrollTop = itemHeight  // 如果大于'#scrollView'的高度  就滚动到底部
 				})
 			}
