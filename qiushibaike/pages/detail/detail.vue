@@ -8,7 +8,15 @@
 				<comment-list :item="item" :index="index"></comment-list>
 			</block>
 		</view>
+		
+		<view style="height: 120upx;"></view>
+		
+		<!-- 输入框 -->
+		<user-chat-bottom @submit="submit"></user-chat-bottom>
 
+		<!-- 分享 -->
+		<more-share :show="shareshow" @togle="togle"></more-share>
+		
 	</view>
 </template>
 
@@ -16,13 +24,18 @@
 	import detailInfo from "../../components/detail/detail-info.vue";
 	import time from "../../utils/time.js";
 	import commentList from "../../components/detail/comment-list.vue";
+	import userChatBottom from "../../components/user-chat/user-chat-bottom.vue";
+	import moreShare from "../../components/common/more-share.vue";
 	export default {
 		components:{
 			detailInfo,
-			commentList
+			commentList,
+			userChatBottom,
+			moreShare
 		},
 		data() {
 			return {
+				shareshow:false,
 				comment:{
 					count:20,
 					list:[]
@@ -52,10 +65,24 @@
 		// 监听导航右边按钮
 		onNavigationBarButtonTap(e) {
 			if(e.index==0){
-				console.log("分享")
+				this.togle();
 			}
 		},
 		methods: {
+			togle(){
+				this.shareshow=!this.shareshow
+			},
+			submit(data){
+				let obj={
+					id:1,
+					fid:0,
+					userpic:"https://img-cdn-qiniu.dcloud.net.cn/uniapp/images/uni@2x.png",
+					username:"小猫咪",
+					time:time.gettime.gettime(new Date().getTime()),
+					data:data,
+				};
+				this.comment.list.push(obj);
+			},
 			// 获取评论
 			getcomment(){
 				let arr=[
@@ -109,6 +136,7 @@
 </script>
 
 <style>
+/* 评论 */	
 .u-comment{
 	padding: 0 20upx;
 }
