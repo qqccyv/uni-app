@@ -83,6 +83,7 @@
 					this.providerList = data.sort((x,y) => {
 						return x.sort - y.sort
 					});
+					console.log(JSON.stringify(this.providerList))
 				},
 				fail: (e) => {
 					console.log('获取分享通道失败', e);

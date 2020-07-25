@@ -74,7 +74,18 @@
 			}
 		}, {
 			"path": "pages/my/my",
-			"style": {}
+			"style": {
+				"navigationBarTitleText":"我的",
+				"app-plus":{
+					"scrollIndicator":"none",
+					"bounce":"none",
+					"titleNView":{
+						"buttons":[{
+							"type":"menu"
+						}]
+					}
+				}
+			}
 		}, {
 			"path": "pages/search/search",
 			"style": {
