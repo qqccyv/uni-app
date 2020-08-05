@@ -221,6 +221,17 @@
 				"navigationBarTitleText":"修改密码"
 			}
 		}
+        ,{
+            "path" : "pages/user-set-email/user-set-email",
+            "style" : {
+				"navigationBarTitleText":"绑定邮箱",
+				"app-plus":{
+					"bounce":"none",
+					"scrollIndicator":"none"
+				}
+				
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

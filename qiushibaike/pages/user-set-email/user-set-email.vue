@@ -1,8 +1,7 @@
 <template>
 	<view class="body">
-		<input type="text" @change="changeValue" password v-model="oldPassword" class="uni-input common-input" placeholder="输入旧密码" />
-		<input type="text" @change="changeValue" password v-model="newPassword" class="uni-input common-input" placeholder="输入新密码" />
-		<input type="text" @change="changeValue" password v-model="reNewPassword" class="uni-input common-input" placeholder="确认密码" />
+		<input type="text"   v-model="email" class="uni-input common-input" placeholder="输入邮箱账号" />
+		<input type="text"  password v-model="password" class="uni-input common-input" placeholder="输入邮箱密码" />
 		<button :disabled="isDisabled" :loading="isLoading" :class="{'user-set-btn-disable': isDisabled}" class="user-set-btn" type="primary" @tap="submit">完成</button>
 	</view>
 </template>
@@ -11,16 +10,23 @@
 	export default {
 		data() {
 			return {
-				oldPassword: '',
-				newPassword: '',
-				reNewPassword: '',
+				email: '',
+				password: '',
 				isLoading: false,
 				isDisabled: true
 			}
 		},
+		watch:{
+			email(){
+				this.isDisabled = !this.check()
+			},
+			password(){
+				this.isDisabled = !this.check()
+			}
+		},
 		methods: {
 			check() {
-				if (this.oldPassword.trim() && this.newPassword.trim() && this.reNewPassword.trim()) {
+				if (this.email.trim() && this.password.trim()) {
 					return true
 				}
 
