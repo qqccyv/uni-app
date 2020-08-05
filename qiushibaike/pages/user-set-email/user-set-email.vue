@@ -44,6 +44,14 @@
 					})
 					return
 				}
+				const ePattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+				if(!ePattern.test(this.email)){
+					uni.showToast({
+						title: '邮箱格式不正确!',
+						image: '/static/icon/warning.png'
+					})
+					return
+				}
 				this.isLoading = true
 				setTimeout(() => {
 					this.isLoading = false
