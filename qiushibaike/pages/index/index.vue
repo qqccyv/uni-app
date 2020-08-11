@@ -4,7 +4,7 @@
 		<swiper-tab-head @tabtap="ontabtap" :tabBars="tabBars" :tabIndex="tabIndex">
 
 		</swiper-tab-head>
-
+		sdfsdf
 		<view class="uni-tab-bar">
 			<swiper :style="{height:swiperheight+'px'}" :current="tabIndex" class="swiper-box" @change="ontabchange">
 				<swiper-item class="swiper-item" v-for="(item,index) in newsList" :key="index">

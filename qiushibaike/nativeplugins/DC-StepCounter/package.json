@@ -1,0 +1,21 @@
+{
+	"name": "StepCounter",
+	"id": "DC-StepCounter",
+	"version": "0.0.2",
+	"description": "计步器",
+	"_dp_type":"nativeplugin",
+	"_dp_nativeplugin":{
+		"android": {
+			"plugins": [
+				{
+					"type": "module",
+					"name": "DC-StepCounter",
+					"class": "uni.dcloud.io.uniplugin_stepcounter.StepCounterMoudle"
+				}
+			],
+			"hooksClass": "uni.dcloud.io.uniplugin_stepcounter.StepCounterHookProxy",
+			"integrateType": "aar",
+			"minSdkVersion" : 16
+		}
+	}
+}
