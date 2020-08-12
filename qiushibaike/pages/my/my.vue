@@ -43,7 +43,7 @@
 		},
 		data() {
 			return {
-				islogin:true,
+				islogin:false,
 				homeinfo:{
 					userpic:"../../static/demo/userpic/11.jpg",
 					username:"昵称",
@@ -65,9 +65,11 @@
 		},
 		onNavigationBarButtonTap(e) {
 			if(e.index==0){
-				uni.navigateTo({
+				this.User.permission(
+				uni.navigateTo,{
 					url: '../user-set/user-set',
-				});
+				}
+				)
 			}
 		},
 		methods:{

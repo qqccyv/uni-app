@@ -35,13 +35,52 @@
 			this.getContentHeight()
 		},
 		onReady() {
-				this.pageToBottom()
+				this.pageToBottom(true)
 		},
 		methods: {
 			// 获取聊天数据
 			getdata() {
 				// 从服务器获取到的数据
 				let arr = [{
+						isme: false,
+						userpic: "../../static/demo/userpic/11.jpg",
+						type: "text",
+						data: "哈哈哈",
+						time: "1555146412"
+					},
+					{
+						isme: true,
+						userpic: "../../static/demo/userpic/10.jpg",
+						type: "img",
+						data: "../../static/demo/3.jpg",
+						time: "1555146414",
+					},{
+						isme: false,
+						userpic: "../../static/demo/userpic/11.jpg",
+						type: "text",
+						data: "哈哈哈",
+						time: "1555146412"
+					},
+					{
+						isme: true,
+						userpic: "../../static/demo/userpic/10.jpg",
+						type: "img",
+						data: "../../static/demo/3.jpg",
+						time: "1555146414",
+					},{
+						isme: false,
+						userpic: "../../static/demo/userpic/11.jpg",
+						type: "text",
+						data: "哈哈哈",
+						time: "1555146412"
+					},
+					{
+						isme: true,
+						userpic: "../../static/demo/userpic/10.jpg",
+						type: "img",
+						data: "../../static/demo/3.jpg",
+						time: "1555146414",
+					},{
 						isme: false,
 						userpic: "../../static/demo/userpic/11.jpg",
 						type: "text",
@@ -88,18 +127,19 @@
 					//TODO handle the exception
 				}
 			},
-			pageToBottom() {
-				const query = uni.createSelectorQuery() // 生成query实例
+			pageToBottom(isFirst) {
+				const query = uni.createSelectorQuery().in(this) // 生成query实例
 				query.select('#scrollView').boundingClientRect()
 				// 选择聊天框子组件的所有结点
 				query.selectAll('.userChartItem').boundingClientRect() // APP端可用
 				// query.selectAll('#scrollView >>> .userChartItem').boundingClientRect() // 微信小程序可用 
 				let itemHeight = 0
 				query.exec((res) => {
-					res[1].forEach((item) => {
-						itemHeight += item.height  // 循环相加 所有节点的高度
-					})
-					// console.log(res)
+					if(res[1]){
+						res[1].forEach((item) => {
+							itemHeight += item.height  // 循环相加 所有节点的高度
+						})
+					}
 					if (itemHeight > this.style.contentHeight) this.scrollTop = itemHeight  // 如果大于'#scrollView'的高度  就滚动到底部
 				})
 			}
